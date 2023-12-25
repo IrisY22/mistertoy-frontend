@@ -10,20 +10,21 @@ import {
 } from "../reducers/toyReducer.js";
 import { store } from "../store.js";
 
-export async function loadToys() {
+export function loadToys() {
   store.dispatch({ type: SET_IS_LOADING, isLoading: true });
   const filterBy = store.getState().toyModule.filterBy;
-  try {
-    try {
-      const toys = await toyService.query(filterBy);
+  return toyService
+    .query(filterBy)
+    .then((toys) => {
       store.dispatch({ type: SET_TOYS, toys });
-    } catch (err) {
+    })
+    .catch((err) => {
       console.log("toy action -> Cannot load toys", err);
       throw err;
-    }
-  } finally {
-    store.dispatch({ type: SET_IS_LOADING, isLoading: false });
-  }
+    })
+    .finally(() => {
+      store.dispatch({ type: SET_IS_LOADING, isLoading: false });
+    });
 }
 
 export function removeToyOptimistic(toyId) {

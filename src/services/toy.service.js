@@ -21,11 +21,51 @@ export const toyService = {
   getLabels,
 };
 
-async function query(
-  filterBy = { txt: "", isDone: "all", pageIdx: 0, sortBy: "txt" }
-) {
-  const toys = await storageService.query(TOYS_KEY);
-  return toys;
+// async function query(
+//   filterBy = { txt: "", isDone: "all", pageIdx: 0, sortBy: "txt" }
+// ) {
+//   const toys = await storageService.query(TOYS_KEY);
+//   return toys;
+// }
+
+function query(filterBy) {
+  const { sortBy } = filterBy;
+  return storageService.query(TOYS_KEY).then((toys) => {
+    if (filterBy.txt) {
+      const regex = new RegExp(filterBy.txt, "i");
+      toys = toys.filter((toy) => regex.test(toy.name));
+    }
+    if (filterBy.maxPrice) {
+      toys = toys.filter((toy) => toy.price <= filterBy.maxPrice);
+    }
+    if (filterBy.inStock !== "All") {
+      toys = toys.filter((toy) =>
+        filterBy.inStock === "In stock" ? toy.inStock : !toy.inStock
+      );
+    }
+
+    return _getSortedToys(sortBy, toys);
+  });
+}
+
+function _getSortedToys(sortBy, toys) {
+  let sortedToys;
+  if (sortBy === "txt") {
+    sortedToys = toys.sort((a, b) => {
+      const toyA = a.txt.toUpperCase();
+      const toyB = b.txt.toUpperCase();
+      if (toyA < toyB) {
+        return -1;
+      }
+      if (toyA > toyB) {
+        return 1;
+      }
+      return 0;
+    });
+  } else {
+    sortedToys = toys.sort((a, b) => a.createdAt - b.createdAt);
+  }
+  return sortedToys;
 }
 
 function getById(id) {
@@ -94,5 +134,5 @@ function getLabels() {
 }
 
 function getDefaultFilter() {
-  return { txt: "", maxPrice: "" };
+  return { txt: "", maxPrice: "", inStock: "All" };
 }

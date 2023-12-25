@@ -28,7 +28,7 @@ function createToys(entityType) {
       price: 10,
       labels: ["Dragon Ball", "Anime"],
       createdAt: 1631031801011,
-      inStock: true,
+      inStock: false,
     },
   ];
 
