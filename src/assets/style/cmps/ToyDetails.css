@@ -1,0 +1,30 @@
+.toy-details-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toy-name {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #007bff;
+}
+
+.toy-price {
+  font-size: 1.2rem;
+  color: #28a745;
+}
+
+.toy-description {
+  color: #007bff;
+  margin-bottom: 16px;
+}
+
+.toy-long-description {
+  font-size: 0.9rem;
+  color: #555;
+}
