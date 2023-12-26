@@ -12,8 +12,10 @@ import { ADD_TOY_TO_CART } from "../store/reducers/toyReducer.js";
 import { useEffect } from "react";
 import { ToyList } from "../cmps/ToyList.jsx";
 import { ToyFilter } from "../cmps/ToyFilter.jsx";
+import { useNavigate } from "react-router-dom";
 
 export function ToyIndex() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const toys = useSelector((storeState) => storeState.toyModule.toys);
   const filterBy = useSelector((storeState) => storeState.toyModule.filterBy);
@@ -29,6 +31,7 @@ export function ToyIndex() {
   return (
     <>
       <h1>Welcome To Mister Toy!</h1>
+      <button onClick={() => navigate(`/toyDashboard`)}>Dashboard</button>
       <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
       <ToyList toys={toys} />
     </>

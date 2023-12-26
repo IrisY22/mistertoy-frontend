@@ -8,6 +8,7 @@ import "./assets/style/main.css";
 import { ToyIndex } from "./pages/toyIndex";
 import { store } from "./store/store";
 import { ToyDetails } from "./pages/ToyDetails";
+import { ToyDashboard } from "./pages/ToyDashboard";
 
 export function App() {
   return (
@@ -19,6 +20,7 @@ export function App() {
             <Routes>
               <Route element={<ToyIndex />} path="/" />
               <Route element={<ToyDetails />} path="/toy/:toyId" />
+              <Route element={<ToyDashboard />} path="/toyDashboard" />
             </Routes>
           </main>
           {/* <AppFooter /> */}

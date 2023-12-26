@@ -129,6 +129,7 @@ const labels = [
   "Outdoor",
   "Battery Powered",
   "Anime",
+  "Animals",
 ];
 
 function getLabels() {
