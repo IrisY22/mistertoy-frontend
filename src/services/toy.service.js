@@ -120,6 +120,7 @@ function getEmptyToy() {
 }
 
 const labels = [
+  "All",
   "On wheels",
   "Box game",
   "Art",

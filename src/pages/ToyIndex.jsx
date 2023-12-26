@@ -30,8 +30,15 @@ export function ToyIndex() {
   }
   return (
     <>
-      <h1>Welcome To Mister Toy!</h1>
-      <button onClick={() => navigate(`/toyDashboard`)}>Dashboard</button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <button onClick={() => navigate(`/toyDashboard`)}>Dashboard</button>
+      </div>
       <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
       <ToyList toys={toys} />
     </>

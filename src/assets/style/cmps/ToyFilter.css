@@ -1,0 +1,71 @@
+.toy-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  gap: 20px;
+  width: 90vw;
+}
+
+label {
+  font-weight: bold;
+  color: #602060;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #ecc6ec;
+  border-radius: 4px;
+  width: 200px;
+}
+
+button {
+  background-color: #e6b800;
+  color: #f2d9f2;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  transition: background-color 0.3s ease;
+  background-color: #ffcc00;
+}
+
+select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+form label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .toy-filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input,
+  select,
+  button {
+    width: 100%;
+  }
+}

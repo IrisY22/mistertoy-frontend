@@ -114,14 +114,20 @@ export function ToyDashboard() {
   }
 
   return (
-    <div>
-      <button onClick={() => navigate(`/`)}>Back</button>
-      <button onClick={() => setCurrChar(showByPercentage())}>
-        Show by percentage
-      </button>
-      <button onClick={() => setCurrChar(showByPrice())}>Show by price</button>
-      <Pie data={currChar} />
-      <Bar data={currChar} />
-    </div>
+    <>
+      <div className="header">
+        <button onClick={() => navigate(`/`)}>Back</button>
+        <button onClick={() => setCurrChar(showByPercentage())}>
+          Show by percentage
+        </button>
+        <button onClick={() => setCurrChar(showByPrice())}>
+          Show by price
+        </button>
+      </div>
+      <div className="chart-container">
+        <Pie data={currChar} />
+        <Bar data={currChar} />
+      </div>
+    </>
   );
 }

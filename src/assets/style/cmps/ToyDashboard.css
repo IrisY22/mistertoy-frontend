@@ -1,0 +1,46 @@
+body {
+  background-color: #ac39ac;
+  justify-content: center;
+}
+
+.header {
+  box-shadow: 10px 2px 4px rgb(115, 38, 115, 0.4);
+  padding: 10px;
+}
+
+.chart-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+button {
+  color: #f2d9f2;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d4a300;
+}
+
+canvas {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border: 1px solid #602060;
+  border-radius: 4px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .chart-container {
+    flex-direction: column;
+  }
+}

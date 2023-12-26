@@ -2,8 +2,7 @@ import { useRef, useState } from "react";
 import { utilService } from "../services/util.service.js";
 import { useEffectUpdate } from "./customHooks/useEffectUpdate.js";
 import { toyService } from "../services/toy.service.js";
-
-const toyLabel = toyService.getLabels();
+import { ToySort } from "./ToySort.jsx";
 
 export function ToyFilter({ filterBy, onSetFilter }) {
   const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy });
@@ -14,6 +13,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
   }, [filterByToEdit]);
 
   function handleChange({ target }) {
+    console.log(1);
     let { value, name: field, type } = target;
     value = type === "number" ? +value : value;
     if (type === "select-multiple")
@@ -44,26 +44,9 @@ export function ToyFilter({ filterBy, onSetFilter }) {
           onChange={handleChange}
         />
 
-        <label className="filter-label">
-          <span className="filter-label">Filter By</span>
-          <select
-            onChange={handleChange}
-            name="labels"
-            multiple
-            value={filterByToEdit.labels || []}
-          >
-            <option value=""> All </option>
-            <>
-              {toyLabel.map((label) => (
-                <option key={label} value={label}>
-                  {label}
-                </option>
-              ))}
-            </>
-          </select>
-        </label>
+        <ToySort handleChange={handleChange} filterByToEdit={filterByToEdit} />
 
-        <label htmlFor="inStock"></label>
+        <label htmlFor="inStock">In Stock:</label>
         <select
           id="inStock"
           name="inStock"
@@ -75,6 +58,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
           <option value="Out of stock">Out of stock</option>
         </select>
 
+        <label htmlFor="sortBy">Sort By:</label>
         <select
           id="sortBy"
           name="sortBy"
@@ -85,6 +69,8 @@ export function ToyFilter({ filterBy, onSetFilter }) {
           <option value="price">Price</option>
           <option value="createdAt">Created</option>
         </select>
+
+        {/* <button type="submit">Apply Filters</button> */}
       </form>
     </section>
   );

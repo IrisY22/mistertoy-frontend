@@ -1,32 +1,32 @@
 .toy-item {
-  list-style: none;
-  border: 1px solid #ddd;
-  padding: 16px;
-  margin: 8px;
-  border-radius: 8px;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #993399;
+
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 9px -5px 6px 4px rgb(115, 38, 115, 0.4);
 }
 
 .toy-preview {
-  margin-top: 10px;
+  text-align: center;
 }
 
 .toy-name {
-  color: #007bff;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  font-size: 1.2em;
+  margin-bottom: 5px;
 }
 
 .toy-price {
   font-weight: bold;
-  color: #007bff;
 }
 
 .toy-stock {
-  color: #007bff;
   font-weight: bold;
-  margin-top: 8px;
+}
+
+button {
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }
