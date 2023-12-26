@@ -119,20 +119,22 @@ function getEmptyToy() {
   };
 }
 
+const labels = [
+  "On wheels",
+  "Box game",
+  "Art",
+  "Baby",
+  "Doll",
+  "Puzzle",
+  "Outdoor",
+  "Battery Powered",
+  "Anime",
+];
+
 function getLabels() {
-  const labels = [
-    "On wheels",
-    "Box game",
-    "Art",
-    "Baby",
-    "Doll",
-    "Puzzle",
-    "Outdoor",
-    "Battery Powered",
-  ];
-  return labels;
+  return [...labels];
 }
 
 function getDefaultFilter() {
-  return { txt: "", maxPrice: "", inStock: "All" };
+  return { txt: "", maxPrice: "", inStock: "All", sortBy: "name" };
 }
