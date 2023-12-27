@@ -5,9 +5,18 @@
 html {
 }
 
+/* body {
+  color: var(--gray3);
+} */
+
 body {
   margin: 0;
-  color: var(--gray3);
+  background-color: #ac39ac;
+  justify-content: center;
+}
+
+ul {
+  padding: 0px;
 }
 
 h1,
@@ -16,8 +25,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: .5em 0 .5em;
-  font-family: 'Edu VIC WA NT Beginner', cursive;
+  margin: 0.5em 0 0.5em;
+  font-family: "Edu VIC WA NT Beginner", cursive;
 }
 
 p {
@@ -29,19 +38,33 @@ a {
   color: unset;
 }
 
+button {
+  background-color: var(--clr1btn);
+  color: var(--clr1font);
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
 
+button:hover {
+  background-color: var(--clr2btn);
+  color: var(--clr2bgc);
+}
 
 /* Dont stretch my Media */
 img,
 embed,
 video,
 object {
-  max-width: 100%
+  max-width: 100%;
 }
 
 /* Simple and useful CSS Debugging Technique */
 .debug * {
-  outline: 1px solid gold
+  outline: 1px solid gold;
 }
 
 a.active {

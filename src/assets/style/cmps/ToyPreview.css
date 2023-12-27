@@ -1,5 +1,5 @@
 .toy-item {
-  background-color: #993399;
+  background-color: var(--clr1);
 
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -22,11 +22,4 @@
 
 .toy-stock {
   font-weight: bold;
-}
-
-button {
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
 }

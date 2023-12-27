@@ -16,34 +16,22 @@ form {
 
 label {
   font-weight: bold;
-  color: #602060;
+  color: var(--clr1font);
 }
 
 input,
 select {
+  background-color: var(--clr2bgc);
   padding: 10px;
-  border: 1px solid #ecc6ec;
+  border: 1px solid #602060;
   border-radius: 4px;
   width: 200px;
 }
 
-button {
-  background-color: #e6b800;
-  color: #f2d9f2;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-button:hover {
-  transition: background-color 0.3s ease;
-  background-color: #ffcc00;
-}
-
 select {
   appearance: none;
-  background-color: #fff;
+  background-color: var(--clr2bgc);
+  color: var(--gray2);
   cursor: pointer;
 }
 
@@ -52,20 +40,40 @@ form label {
   margin-bottom: 5px;
 }
 
+.filter-select {
+  width: 200px;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .toy-filter {
-    flex-direction: column;
-    align-items: flex-start;
+    /* flex-direction: column;
+    align-items: flex-start; */
+    /* display: grid; */
+    /* grid-template-rows: repeat(2, 1fr); */
+    /* gap: 20px; */
+    /* padding: 20px; */
+    /* border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   }
 
   form {
-    width: 100%;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
   }
 
   input,
   select,
   button {
-    width: 100%;
+    width: 300px;
   }
+
+  .filter-select {
+    width: 300px;
+  }
+
+  /* form {
+    width: 100%;
+  } */
 }

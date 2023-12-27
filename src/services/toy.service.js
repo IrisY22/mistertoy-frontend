@@ -21,6 +21,60 @@ export const toyService = {
   getLabels,
 };
 
+
+function query(filterBy = {}) {
+  return httpService.get(BASE_URL, filterBy);
+}
+
+function getById(toyId) {
+  return httpService.get(BASE_URL + toyId);
+}
+
+function remove(toyId) {
+  return httpService.delete(BASE_URL + toyId);
+}
+
+function save(toy) {
+  if (toy._id) {
+    return httpService.put(BASE_URL, toy);
+  } else {
+    return httpService.post(BASE_URL, toy);
+  }
+}
+
+function getEmptyToy() {
+  return {
+    _id: null,
+    name: "",
+    price: utilService.getRandomIntInclusive(1, 300),
+    labels: [],
+    createdAt: Date.now(),
+    inStock: true,
+  };
+}
+
+const labels = [
+  "All",
+  "On wheels",
+  "Box game",
+  "Art",
+  "Baby",
+  "Doll",
+  "Puzzle",
+  "Outdoor",
+  "Battery Powered",
+  "Anime",
+  "Animals",
+];
+
+function getLabels() {
+  return [...labels];
+}
+
+function getDefaultFilter() {
+  return { txt: "", maxPrice: "", inStock: "All", sortBy: "name" };
+}
+
 // async function query(
 //   filterBy = { txt: "", isDone: "all", pageIdx: 0, sortBy: "txt" }
 // ) {
@@ -87,56 +141,3 @@ export const toyService = {
 //   await storageService.remove(TOYS_KEY, toyId);
 //   return toyId;
 // }
-
-function query(filterBy = {}) {
-  return httpService.get(BASE_URL, filterBy);
-}
-
-function getById(toyId) {
-  return httpService.get(BASE_URL + toyId);
-}
-
-function remove(toyId) {
-  return httpService.delete(BASE_URL + toyId);
-}
-
-function save(toy) {
-  if (toy._id) {
-    return httpService.put(BASE_URL, toy);
-  } else {
-    return httpService.post(BASE_URL, toy);
-  }
-}
-
-function getEmptyToy() {
-  return {
-    _id: null,
-    name: "",
-    price: utilService.getRandomIntInclusive(1, 300),
-    labels: [],
-    createdAt: Date.now(),
-    inStock: true,
-  };
-}
-
-const labels = [
-  "All",
-  "On wheels",
-  "Box game",
-  "Art",
-  "Baby",
-  "Doll",
-  "Puzzle",
-  "Outdoor",
-  "Battery Powered",
-  "Anime",
-  "Animals",
-];
-
-function getLabels() {
-  return [...labels];
-}
-
-function getDefaultFilter() {
-  return { txt: "", maxPrice: "", inStock: "All", sortBy: "name" };
-}

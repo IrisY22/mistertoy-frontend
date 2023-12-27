@@ -31,6 +31,7 @@ export function ToyIndex() {
   return (
     <>
       <div
+        className="main-layout"
         style={{
           display: "flex",
           justifyContent: "center",

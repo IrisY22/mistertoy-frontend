@@ -1,11 +1,14 @@
-body {
-  background-color: #ac39ac;
+.dashboard-layout {
+  display: grid;
   justify-content: center;
+  align-items: center;
 }
 
 .header {
   box-shadow: 10px 2px 4px rgb(115, 38, 115, 0.4);
   padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .chart-container {
@@ -18,7 +21,8 @@ body {
 }
 
 button {
-  color: #f2d9f2;
+  background-color: var(--clr1btn);
+  color: var(--clr1font);
   border: none;
   padding: 10px 20px;
   margin: 10px;
@@ -38,8 +42,11 @@ canvas {
   border-radius: 4px;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
+  .dashboard-layout {
+    display: grid;
+    justify-content: center;
+  }
   .chart-container {
     flex-direction: column;
   }

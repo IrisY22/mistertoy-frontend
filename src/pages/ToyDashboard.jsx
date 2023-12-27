@@ -114,7 +114,7 @@ export function ToyDashboard() {
   }
 
   return (
-    <>
+    <div className="dashboard-layout">
       <div className="header">
         <button onClick={() => navigate(`/`)}>Back</button>
         <button onClick={() => setCurrChar(showByPercentage())}>
@@ -128,6 +128,6 @@ export function ToyDashboard() {
         <Pie data={currChar} />
         <Bar data={currChar} />
       </div>
-    </>
+    </div>
   );
 }

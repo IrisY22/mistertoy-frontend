@@ -9,11 +9,14 @@ export function ToySort({ handleChange, filterByToEdit }) {
   return (
     <div className="toy-sort-container">
       <FormControl variant="filled" className="filter-form-control">
-        <InputLabel id="labels-select-label" style={{ color: "black" }}>
+        <InputLabel
+          id="labels-select-label"
+          style={{ color: "rgb(155, 155, 155)" }}
+        >
           Labels
         </InputLabel>
         <Select
-          style={{ backgroundColor: "white" }}
+          style={{ backgroundColor: " #f2d9f2" }}
           labelId="labels-select-label"
           id="labels-select"
           onChange={handleChange}
@@ -23,7 +26,7 @@ export function ToySort({ handleChange, filterByToEdit }) {
           className="filter-select"
         >
           {toyLabel.map((label) => (
-            <MenuItem key={label} value={label} style={{ color: "black" }}>
+            <MenuItem key={label} value={label} style={{ color: "#602060" }}>
               {label}
             </MenuItem>
           ))}
