@@ -39,6 +39,7 @@ export function ToyIndex() {
         }}
       >
         <button onClick={() => navigate(`/toyDashboard`)}>Dashboard</button>
+        <button onClick={() => navigate(`/userLogin`)}>Login</button>
       </div>
       <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
       <ToyList toys={toys} />

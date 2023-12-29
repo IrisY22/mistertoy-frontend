@@ -9,6 +9,7 @@ import { ToyIndex } from "./pages/toyIndex";
 import { store } from "./store/store";
 import { ToyDetails } from "./pages/ToyDetails";
 import { ToyDashboard } from "./pages/ToyDashboard";
+import { UserLogin } from "./pages/UserLogin";
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
               <Route element={<ToyIndex />} path="/" />
               <Route element={<ToyDetails />} path="/toy/:toyId" />
               <Route element={<ToyDashboard />} path="/toyDashboard" />
+              <Route element={<UserLogin />} path="/userLogin" />
             </Routes>
           </main>
           {/* <AppFooter /> */}
