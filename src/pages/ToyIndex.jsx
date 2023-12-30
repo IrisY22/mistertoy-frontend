@@ -39,7 +39,9 @@ export function ToyIndex() {
           alignItems: "center",
         }}
       >
-        {userService.isAdmin() && <button>Add toy</button>}
+        {userService.isAdmin() && (
+          <button onClick={() => navigate(`/AddToy`)}>Add toy</button>
+        )}
         <button onClick={() => navigate(`/toyDashboard`)}>Dashboard</button>
         <button onClick={() => navigate(`/userLogin`)}>Login</button>
       </div>

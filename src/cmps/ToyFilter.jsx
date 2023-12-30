@@ -13,7 +13,6 @@ export function ToyFilter({ filterBy, onSetFilter }) {
   }, [filterByToEdit]);
 
   function handleChange({ target }) {
-    console.log(1);
     let { value, name: field, type } = target;
     value = type === "number" ? +value : value;
     if (type === "select-multiple")

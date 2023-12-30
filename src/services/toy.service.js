@@ -19,8 +19,8 @@ export const toyService = {
   getEmptyToy,
   getDefaultFilter,
   getLabels,
+  saveMsg,
 };
-
 
 function query(filterBy = {}) {
   return httpService.get(BASE_URL, filterBy);
@@ -36,20 +36,24 @@ function remove(toyId) {
 
 function save(toy) {
   if (toy._id) {
-    return httpService.put(BASE_URL, toy);
+    return httpService.put(BASE_URL + toy._id, toy);
   } else {
     return httpService.post(BASE_URL, toy);
   }
 }
 
+async function saveMsg(toyId, msg) {
+  return await httpService.post(BASE_URL + toyId + "/msg", msg);
+}
+
 function getEmptyToy() {
   return {
-    _id: null,
     name: "",
-    price: utilService.getRandomIntInclusive(1, 300),
+    price: 0,
     labels: [],
     createdAt: Date.now(),
     inStock: true,
+    msg: [],
   };
 }
 
