@@ -11,7 +11,16 @@ export const userService = {
   getById,
   getLoggedinUser,
   getEmptyCredentials,
+  isAdmin,
 };
+
+function isAdmin() {
+  var isAdmin = false;
+  if (getLoggedinUser() && getLoggedinUser().isAdmin) {
+    isAdmin = true;
+  }
+  return isAdmin;
+}
 
 function getById(userId) {
   return httpService.get(BASE_URL + userId);
@@ -37,7 +46,7 @@ async function login({ username, password }) {
 }
 
 async function signup({ username, password, fullname }) {
-  const user = { username, password, fullname, score: 10000 };
+  const user = { username, password, fullname };
   try {
     const signedUser = await httpService.post(BASE_URL + "signup", user);
     if (signedUser) return _setLoggedinUser(signedUser);
@@ -81,7 +90,7 @@ function _setLoggedinUser(user) {
   const userToSave = {
     _id: user._id,
     fullname: user.fullname,
-    score: user.score,
+    isAdmin: user.isAdmin,
   };
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave));
   return userToSave;

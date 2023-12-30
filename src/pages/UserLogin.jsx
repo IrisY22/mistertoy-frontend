@@ -15,11 +15,26 @@ export function UserLogin() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Username:", username, "Password:", password);
-    userService.login({ username, password });
+    try {
+      await userService.login({ username, password });
+    } catch (err) {
+      console.log("err: " + err);
+    }
+    afterLoginClick();
   };
+
+  function afterLoginClick() {
+    console.log(userService.getLoggedinUser());
+    if (!username || !password) {
+      alert("Please enter your username and password");
+    } else if (!userService.getLoggedinUser()) {
+      alert("Wrong username or password");
+    } else {
+      navigate(`/`);
+    }
+  }
 
   return (
     <div>

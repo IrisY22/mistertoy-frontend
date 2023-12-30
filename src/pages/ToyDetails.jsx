@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toyService } from "../services/toy.service";
+import { userService } from "../services/user.service";
 export function ToyDetails() {
   const navigate = useNavigate();
   const [toy, setToy] = useState(null);
   const { toyId } = useParams();
   useEffect(() => {
+    console.log(userService.getLoggedinUser());
     loadToy();
   }, [toyId]);
 
@@ -19,9 +21,12 @@ export function ToyDetails() {
         navigate("/");
       });
   }
+
   if (!toy) return <div>Loading...</div>;
   return (
     <section className="toy-details-container">
+      {userService.isAdmin() && <button>Delete</button>}
+      {userService.isAdmin() && <button>Edit</button>}
       <h1 className="toy-name">{toy.name}</h1>
       <h5 className="toy-price">${toy.price.toFixed(2)}</h5>
       <p className="toy-description">

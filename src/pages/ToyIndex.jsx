@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { ToyList } from "../cmps/ToyList.jsx";
 import { ToyFilter } from "../cmps/ToyFilter.jsx";
 import { useNavigate } from "react-router-dom";
+import { userService } from "../services/user.service.js";
 
 export function ToyIndex() {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ export function ToyIndex() {
           alignItems: "center",
         }}
       >
+        {userService.isAdmin() && <button>Add toy</button>}
         <button onClick={() => navigate(`/toyDashboard`)}>Dashboard</button>
         <button onClick={() => navigate(`/userLogin`)}>Login</button>
       </div>
